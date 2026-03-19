@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-data-json-schemas` will be documented in this file.
 
+## v1.3.1 - 2026-03-19
+
+### Bug fixes
+
+* Fix bug caused by DocBlockParser assuming the first node of a DocBlock is always a text node.
+
 ## v1.3.0 - 2026-03-19
 
 ### Laravel 13 support
