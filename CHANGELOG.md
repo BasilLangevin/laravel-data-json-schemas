@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-data-json-schemas` will be documented in this file.
 
+## v1.2.0 - 2026-03-19
+
+### Laravel 12 support
+
+Updates `composer.json` to support Laravel 12.
+
 ## v1.1.0 - 2025-02-09
 
 ### Increased schema strictness
