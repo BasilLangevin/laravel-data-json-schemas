@@ -53,5 +53,5 @@ it('does not add properties to the schema if there are no properties', function 
     $schema = ObjectSchema::make();
     ApplyPropertiesToDataObjectSchema::run($schema, $class, $this->tree);
 
-    expect(fn () => $schema->getProperties())->toThrow(\Exception::class, 'The keyword "properties" has not been set.');
+    expect(fn () => $schema->getProperties())->toThrow(Exception::class, 'The keyword "properties" has not been set.');
 });

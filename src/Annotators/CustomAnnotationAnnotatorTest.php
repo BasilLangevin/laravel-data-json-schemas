@@ -17,7 +17,7 @@ it('does not apply custom annotations to a schema if the property is not annotat
     $schema = $this->class->getSchemaClass();
 
     expect(fn () => $schema->getProperties()['test']->getCustomAnnotation())
-        ->toThrow(\Exception::class, 'The keyword "customAnnotation" has not been set.');
+        ->toThrow(Exception::class, 'The keyword "customAnnotation" has not been set.');
 
     expect(Arr::get($schema->toArray(), 'properties.test'))->toEqual([
         'type' => 'string',

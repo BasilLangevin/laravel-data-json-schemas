@@ -8,7 +8,7 @@ use BasilLangevin\LaravelDataJsonSchemas\Support\Concerns\WhenCallbacks;
 use BasilLangevin\LaravelDataJsonSchemas\Support\SchemaTree;
 
 /**
- * @property \BasilLangevin\LaravelDataJsonSchemas\Enums\DataType $type The type of the schema.
+ * @property DataType $type The type of the schema.
  *
  * @method static type(DataType $type) Set the type of the schema using the TypeKeyword class.
  */

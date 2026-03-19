@@ -2,10 +2,11 @@
 
 namespace BasilLangevin\LaravelDataJsonSchemas\Support;
 
-use Illuminate\Support\Collection;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use PHPStan\PhpDocParser\Ast\PhpDoc\ParamTagValueNode;
+use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocChildNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTextNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\VarTagValueNode;
@@ -56,7 +57,7 @@ class DocBlockParser
     /**
      * Get the children of the doc block.
      *
-     * @return \PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocChildNode[]
+     * @return PhpDocChildNode[]
      */
     protected function getChildren(): array
     {
@@ -66,7 +67,7 @@ class DocBlockParser
     /**
      * Get the text nodes of the doc block.
      *
-     * @return \PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTextNode[]
+     * @return PhpDocTextNode[]
      */
     protected function getTextNodes(): array
     {
@@ -124,7 +125,7 @@ class DocBlockParser
         }
 
         $summary = $this->getSummary() ?? ''; // @pest-mutate-ignore Strict type assertion for PHPStan.
-        
+
         $description = str($this->getFirstTextNode()?->text ?? '')
             ->after($summary)
             ->trim()
@@ -144,7 +145,7 @@ class DocBlockParser
     /**
      * Get a Collection of the doc block's param tags.
      *
-     * @return \Illuminate\Support\Collection<int, \PHPStan\PhpDocParser\Ast\PhpDoc\ParamTagValueNode>
+     * @return Collection<int, ParamTagValueNode>
      */
     protected function getParamTagValues(): Collection
     {
@@ -173,7 +174,7 @@ class DocBlockParser
     /**
      * Get a Collection of the doc block's var tags.
      *
-     * @return \Illuminate\Support\Collection<int, \PHPStan\PhpDocParser\Ast\PhpDoc\VarTagValueNode>
+     * @return Collection<int, VarTagValueNode>
      */
     protected function getVarTagValues(): Collection
     {

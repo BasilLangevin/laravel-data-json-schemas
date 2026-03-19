@@ -15,7 +15,7 @@ trait AccessesAttributes
      * @template T of object
      *
      * @param  class-string<T>|null  $name
-     * @return \Illuminate\Support\Collection<int, AttributeWrapper>
+     * @return Collection<int, AttributeWrapper>
      */
     public function attributes(?string $name = null): Collection
     {

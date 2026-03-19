@@ -73,7 +73,7 @@ test('applyType does not add types to the constituent schemas if none of them is
     $schema = UnionSchema::make();
     $schema->buildConstituentSchemas($property, $this->tree);
 
-    expect(fn () => $schema->getConstituentSchemas()->first()->getType())->toThrow(\Exception::class, 'The keyword "type" has not been set.');
+    expect(fn () => $schema->getConstituentSchemas()->first()->getType())->toThrow(Exception::class, 'The keyword "type" has not been set.');
 });
 
 test('the tree method adds the tree to each of the constituent schemas', function () {
@@ -167,7 +167,7 @@ it('throws a BadMethodCallException if a keyword method is not supported by any 
 
     $schema->minItems(42);
 })
-    ->throws(\BadMethodCallException::class, 'Method "minItems" not found');
+    ->throws(BadMethodCallException::class, 'Method "minItems" not found');
 
 it('applies a keyword to all of its applicable constituent schemas', function () {
     $this->class->addProperty('string | int', 'property');
@@ -201,7 +201,7 @@ test('a getter keyword method throws an exception if the keyword is not set on a
     $schema = UnionSchema::make();
     $schema->buildConstituentSchemas($property, $this->tree);
 
-    expect(fn () => $schema->getMinLength())->toThrow(\Exception::class, 'The keyword "minLength" has not been set.');
+    expect(fn () => $schema->getMinLength())->toThrow(Exception::class, 'The keyword "minLength" has not been set.');
 });
 
 test('a getter keyword method returns a collection of the values from the constituent schemas when mu.tiple have the keyword', function () {
@@ -228,7 +228,7 @@ it('can clone its base structure', function () {
     $clone = $schema->cloneBaseStructure();
 
     expect($clone)->toBeInstanceOf(UnionSchema::class);
-    expect(fn () => $clone->getDescription())->toThrow(\Exception::class, 'The keyword "description" has not been set.');
+    expect(fn () => $clone->getDescription())->toThrow(Exception::class, 'The keyword "description" has not been set.');
 
     $constituents = $clone->getConstituentSchemas();
     expect($constituents->first())->toBeInstanceOf(StringSchema::class);

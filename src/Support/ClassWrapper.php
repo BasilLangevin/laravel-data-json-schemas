@@ -24,7 +24,7 @@ class ClassWrapper implements EntityWrapper
     use AccessesDocBlock;
 
     /**
-     * @param  \ReflectionClass<Data>  $class
+     * @param  ReflectionClass<Data>  $class
      */
     public function __construct(protected ReflectionClass $class)
     {
@@ -70,7 +70,7 @@ class ClassWrapper implements EntityWrapper
     /**
      * Get the properties of the class as a collection of PropertyWrapper instances.
      *
-     * @return \Illuminate\Support\Collection<int, PropertyWrapper>
+     * @return Collection<int, PropertyWrapper>
      */
     public function properties(): Collection
     {

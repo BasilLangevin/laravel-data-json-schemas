@@ -119,7 +119,7 @@ class UnionSchema implements Schema
     {
         try {
             return $this->__callUnionKeyword($name, $arguments);
-        } catch (\BadMethodCallException $e) {
+        } catch (BadMethodCallException $e) {
         }
 
         $badCalls = 0;
@@ -128,13 +128,13 @@ class UnionSchema implements Schema
             ->map(function (SingleTypeSchema $schema) use ($name, $arguments, &$badCalls) {
                 try {
                     return $schema->__call($name, $arguments);
-                } catch (\BadMethodCallException $e) {
+                } catch (BadMethodCallException $e) {
                     $badCalls++;
 
                     return $e;
                 }
             })
-            ->reject(fn ($result) => $result instanceof \BadMethodCallException);
+            ->reject(fn ($result) => $result instanceof BadMethodCallException);
 
         if ($badCalls === $this->getConstituentSchemas()->count()) {
             throw new BadMethodCallException("Method \"{$name}\" not found");

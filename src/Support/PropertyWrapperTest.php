@@ -93,7 +93,7 @@ it('can get its reflection type', function () {
 
     expect($type)->toBeInstanceOf(ReflectionNamedType::class);
 
-    /** @var \ReflectionNamedType $type */
+    /** @var ReflectionNamedType $type */
     expect($type->getName())->toBe('string');
 });
 

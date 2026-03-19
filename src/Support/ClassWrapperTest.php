@@ -40,7 +40,7 @@ class TestInvalidClassWrapperClass {}
 
 it('throws an exception if the class is not a data class', function () {
     ClassWrapper::make(TestInvalidClassWrapperClass::class);
-})->throws(\InvalidArgumentException::class, 'Only data classes are supported.');
+})->throws(InvalidArgumentException::class, 'Only data classes are supported.');
 
 it('can get its name')
     ->expect(fn () => ClassWrapper::make(TestClassWrapperClass::class)->getName())
@@ -97,7 +97,7 @@ it('throws an exception if a property is not found', function () {
     $reflector = ClassWrapper::make(TestClassWrapperClass::class);
 
     $reflector->getProperty('nonExistentProperty');
-})->throws(\Exception::class, 'Property "nonExistentProperty" not found in class "TestClassWrapperClass"');
+})->throws(Exception::class, 'Property "nonExistentProperty" not found in class "TestClassWrapperClass"');
 
 it('can check if it has a constructor', function () {
     $reflector = ClassWrapper::make(TestClassWrapperClass::class);

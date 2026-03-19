@@ -14,7 +14,7 @@ it('can be instantiated with an array')
 
 it('throws an exception if instantiated with a string without a value', function () {
     new CustomAnnotation('annotation');
-})->throws(\InvalidArgumentException::class, 'Custom annotations require a key and value.');
+})->throws(InvalidArgumentException::class, 'Custom annotations require a key and value.');
 
 it('can get its value')
     ->expect(new CustomAnnotation('annotation', 'value'))

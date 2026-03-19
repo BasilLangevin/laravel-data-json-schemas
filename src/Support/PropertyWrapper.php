@@ -88,7 +88,7 @@ class PropertyWrapper implements EntityWrapper
      *
      * Union and intersection types are flattened into their constituent named types.
      *
-     * @return \Illuminate\Support\Collection<int, ReflectionNamedType>
+     * @return Collection<int, ReflectionNamedType>
      */
     public function getReflectionTypes(): Collection
     {
@@ -116,7 +116,7 @@ class PropertyWrapper implements EntityWrapper
     /**
      * Get the Spatie Types of the property as a collection.
      *
-     * @return \Illuminate\Support\Collection<int, NamedType>
+     * @return Collection<int, NamedType>
      */
     public function getTypes(): Collection
     {
@@ -136,7 +136,7 @@ class PropertyWrapper implements EntityWrapper
     /**
      * Get the names of the Spatie Types of the property as a collection.
      *
-     * @return \Illuminate\Support\Collection<int, string>
+     * @return Collection<int, string>
      */
     public function getTypeNames(): Collection
     {
@@ -324,7 +324,7 @@ class PropertyWrapper implements EntityWrapper
     /**
      * Get the siblings of the property as a collection.
      *
-     * @return \Illuminate\Support\Collection<int, PropertyWrapper>
+     * @return Collection<int, PropertyWrapper>
      */
     public function siblings(): Collection
     {
@@ -338,7 +338,7 @@ class PropertyWrapper implements EntityWrapper
     /**
      * Get the sibling names of the property as a collection.
      *
-     * @return \Illuminate\Support\Collection<int, string>
+     * @return Collection<int, string>
      */
     public function siblingNames(): Collection
     {

@@ -39,7 +39,7 @@ it('can check if an attribute is supported', function () {
 });
 
 it('can check if an attribute is not supported', function () {
-    #[\Attribute]
+    #[Attribute]
     class UnsupportedAttribute {}
 
     class UnsupportedAttributesTest extends Data
@@ -59,7 +59,7 @@ it('can check if an attribute is not supported', function () {
 });
 
 it('throws an exception when instantiating an unsupported attribute', function () {
-    #[\Attribute]
+    #[Attribute]
     class UnsupportedInstantiationAttribute {}
 
     class UnsupportedInstantiationAttributesTest extends Data
@@ -74,7 +74,7 @@ it('throws an exception when instantiating an unsupported attribute', function (
     $attributes = $property->getAttributes();
 
     expect(AttributeWrapper::supports($attributes[0]))->toBeFalse();
-    expect(fn () => new AttributeWrapper($attributes[0]))->toThrow(\InvalidArgumentException::class, 'AttributeWrapper does not support the "UnsupportedInstantiationAttribute" attribute.');
+    expect(fn () => new AttributeWrapper($attributes[0]))->toThrow(InvalidArgumentException::class, 'AttributeWrapper does not support the "UnsupportedInstantiationAttribute" attribute.');
 });
 
 it('can get the name of the attribute', function () {
@@ -163,7 +163,7 @@ it('throws an exception when getting the value of an unsupported attribute', fun
     $attribute = $property->getAttribute(TestAttribute::class);
 
     $attribute->getValue();
-})->throws(\Exception::class, 'Attribute value not supported');
+})->throws(Exception::class, 'Attribute value not supported');
 
 test('getValue returns null when the attribute has no parameters', function () {
     $this->class->addStringProperty('test', [Alpha::class]);

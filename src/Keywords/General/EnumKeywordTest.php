@@ -48,12 +48,12 @@ it('can set its enum to an integer enum')
 it('cannot set its enum to a non-backed enum', function () use ($basicOutput) {
     StringSchema::make()->enum(KeywordTestEnum::class)->applyKeyword(EnumKeyword::class, $basicOutput);
 })
-    ->throws(\InvalidArgumentException::class, "Enum 'KeywordTestEnum' is not a backed enum. Only backed enums are supported.");
+    ->throws(InvalidArgumentException::class, "Enum 'KeywordTestEnum' is not a backed enum. Only backed enums are supported.");
 
 it('cannot set its enum to a non-enum', function () use ($basicOutput) {
     StringSchema::make()->enum('KeywordTest')->applyKeyword(EnumKeyword::class, $basicOutput);
 })
-    ->throws(\InvalidArgumentException::class, "Enum 'KeywordTest' is not a valid enum.");
+    ->throws(InvalidArgumentException::class, "Enum 'KeywordTest' is not a valid enum.");
 
 it('can set its enum to an array of values')
     ->expect(StringSchema::make()->enum([KeywordTestStringEnum::First, KeywordTestStringEnum::Second]))

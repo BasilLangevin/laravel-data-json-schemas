@@ -2,10 +2,11 @@
 
 namespace BasilLangevin\LaravelDataJsonSchemas\Facades;
 
+use BasilLangevin\LaravelDataJsonSchemas\LaravelDataJsonSchemas;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \BasilLangevin\LaravelDataJsonSchemas\LaravelDataJsonSchemas
+ * @see LaravelDataJsonSchemas
  */
 class JsonSchema extends Facade
 {

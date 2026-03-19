@@ -158,7 +158,7 @@ class SchemaTree
     /**
      * Get the data classes that should be defined in the "$defs" section of the schema.
      *
-     * @return \Illuminate\Support\Collection<int, class-string<Data>>
+     * @return Collection<int, class-string<Data>>
      */
     protected function getDefClasses(): Collection
     {
