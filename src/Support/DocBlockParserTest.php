@@ -176,6 +176,17 @@ it('returns null when the doc block has a multi-line summary but no description'
     ->getDescription()
     ->toBeNull();
 
+it('returns null when the first node of the doc block is not a text node')
+    ->expect(DocBlockParser::make(<<<'DOC'
+        /**
+         * @implements SomeInterface
+         *
+         * @phpstan-type SomePHPStanType array{key1: int, key2: string}
+        */
+        DOC))
+    ->getDescription()
+    ->toBeNull();
+
 it('can check if the doc block has a description')
     ->expect(DocBlockParser::make(<<<'DOC'
         /**

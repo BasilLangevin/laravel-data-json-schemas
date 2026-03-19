@@ -3,6 +3,7 @@
 namespace BasilLangevin\LaravelDataJsonSchemas\Support;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use PHPStan\PhpDocParser\Ast\PhpDoc\ParamTagValueNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocNode;
@@ -76,6 +77,14 @@ class DocBlockParser
     }
 
     /**
+     * Get the first text node of the doc block.
+     */
+    protected function getFirstTextNode(): ?PhpDocTextNode
+    {
+        return Arr::first($this->getTextNodes());
+    }
+
+    /**
      * Get the summary of the doc block.
      */
     public function getSummary(): ?string
@@ -84,7 +93,7 @@ class DocBlockParser
             return null;
         }
 
-        $content = str($this->getTextNodes()[0]->text);
+        $content = str($this->getFirstTextNode()?->text ?? '');
 
         if ($content->contains("\n\n")) {
             $content = $content->before("\n\n")->trim();
@@ -115,8 +124,8 @@ class DocBlockParser
         }
 
         $summary = $this->getSummary() ?? ''; // @pest-mutate-ignore Strict type assertion for PHPStan.
-
-        $description = str($this->getTextNodes()[0]->text)
+        
+        $description = str($this->getFirstTextNode()?->text ?? '')
             ->after($summary)
             ->trim()
             ->toString();
