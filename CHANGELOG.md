@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-data-json-schemas` will be documented in this file.
 
+## v1.3.0 - 2026-03-19
+
+### Laravel 13 support
+
+Updates composer.json to support Laravel 13.
+
 ## v1.2.0 - 2026-03-19
 
 ### Laravel 12 support
